@@ -34,6 +34,7 @@ function WeatherApi() {
     // clear this interval i.e timer id
     const time = setInterval(() => {
       setCurrentTime(new Date())
+      console.log(currentTime)
     }, 1000)
 
     //Also we are going to clear interval after component  unmount 
@@ -42,19 +43,14 @@ function WeatherApi() {
 
   }, [])
 
-
-
-
-
-
-  const handleChange = (e) => {
+ const handleChange = (e) => {
     setCity(e.target.value)
 
   }
   return (
     <>
-      <h1 className='text-center font-serif text-3xl font-semibold my-20 '>Weather API</h1>
-      <div className='flex justify-center flex-col border-2 border-slate-950 mx-96 my-7  items-center h-auto bg-slate-400 rounded-md '>
+      <h1 className=' text-center border-2 rounded-2xl bg-black text-pink-50 font-serif text-3xl font-semibold my-20 sm:w-fit mx-auto px-5'>Weather API</h1>
+      <div className=' mx-auto  border-2 border-slate-950  my-7 w-fit overflow-x-hidden  h-auto bg-blue-300 rounded-md sm:w-fit sm:flex  sm:justify-center p-1 '>
 
         <div className='flex flex-col justify-center '>
 
@@ -68,8 +64,8 @@ function WeatherApi() {
           {weather ? (
             <>
               <div className='flex flex-col  justify-center items-center gap-3 font-serif my-3 font-bold border-2 shadow-black bg-white p-4'>
-                <h1>Current time & Date:{currentTime.toLocaleDateString()} </h1>
-                {/* {currentTime.toLocaleTimeString()} */}
+                <h1>Current time & Date:{currentTime.toLocaleDateString()} {currentTime.toLocaleTimeString()} </h1>
+                
                 {/* It will get time dand date into the original format that we see everyday */}
                 <h1 >Getting Weather Data:{weather.name}, {weather.sys?.country}</h1>
                 <h2>{weather.main?.temp}°C </h2>
